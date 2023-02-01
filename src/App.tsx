@@ -15,7 +15,7 @@ type TaskStateType = {
     [todoListId: string]: Array<TaskType>
 }
 
-function App() : JSX.Element {
+function App() {
     const todolistId1 = v1()
     const todolistId2 = v1()
 
@@ -76,9 +76,9 @@ function App() : JSX.Element {
         (tasks: Array<TaskType>, filter: FilterValuesType):Array<TaskType>  => {
             switch (filter) {
                 case "active":
-                    return  tasks.filter(task => task.isDone === false)
+                    return  tasks.filter(task => !task.isDone)
                 case "completed":
-                    return  tasks.filter(task => task.isDone === true)
+                    return  tasks.filter(task => task.isDone)
                 default:
                     return  tasks
             }
