@@ -1,4 +1,6 @@
 import React, {ChangeEvent, FC, KeyboardEvent, useState} from 'react';
+import {ButtonGroup, IconButton, TextField} from "@mui/material";
+import {DeleteForever, LibraryAdd} from "@mui/icons-material";
 type AddItemFormPropsType = {
     addItem: (title:string) => void
 }
@@ -27,13 +29,22 @@ const AddItemForm : FC<AddItemFormPropsType> = (props) => {
     return (
 
             <div className={'addItemForm'}>
-                <input value={title}
+
+                <TextField value={title}
                        onChange={onChangeHandler}
                        onKeyUp={onKeyPressHandler}
                        className={error ? "error" : ""}
+                           variant={'outlined'}
+                           size={"small"}
+                           label={'Enter title'}
+                           error={!!error}
+                           helperText = {error && 'Ошибка'}
                 />
-                <button onClick={addItem}>+</button>
-                {error && <div className="error-message">{error}</div>}
+
+                <IconButton aria-label="delete" onClick={addItem} color = 'success' size = 'small'>
+                    <LibraryAdd    />
+                </IconButton>
+ 
             </div>
 
     );
