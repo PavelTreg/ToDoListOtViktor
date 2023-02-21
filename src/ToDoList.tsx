@@ -25,10 +25,6 @@ type PropsType = {
     changeTodolistTitle: (title: string, todolistId: string) => void
 }
 
-function DisabledByDefaultIcon() {
-    return null;
-}
-
 export function Todolist(props: PropsType) {
 
 
